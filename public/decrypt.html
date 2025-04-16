@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Descifrar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Descifrar Mensaje</h1>
+    <form id="decryptForm">
+        <input type="file" name="file" required>
+        <input type="password" name="key" placeholder="Clave (16 caracteres)" required>
+        <button type="submit">Descifrar</button>
+    </form>
+    <textarea id="output" placeholder="Mensaje descifrado aparecerá aquí..." readonly></textarea>
+    <button onclick="location.href='index.html'">Volver</button>
+
+    <script>
+        document.getElementById('decryptForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            const res = await fetch('/decrypt', {
+                method: 'POST',
+                body: formData
+            });
+            const text = await res.text();
+            document.getElementById('output').value = text;
+        });
+    </script>
+</body>
+</html>

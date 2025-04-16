@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cifrar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Cifrar Mensaje</h1>
+    <form action="/encrypt" method="POST">
+        <textarea name="message" placeholder="Escribe tu mensaje aquí..." required></textarea>
+        <input type="password" name="key" placeholder="Clave (16 caracteres)" required>
+        <button type="submit">Cifrar y Descargar</button>
+    </form>
+    <button onclick="location.href='index.html'">Volver</button>
+</body>
+</html>
